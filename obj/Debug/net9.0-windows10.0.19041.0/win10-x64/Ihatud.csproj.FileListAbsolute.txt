@@ -477,3 +477,4 @@ C:\Users\HP\Documents\VSCode-Files\C#-MAUI\Ihatud\bin\Debug\net9.0-windows10.0.1
 C:\Users\HP\Documents\VSCode-Files\C#-MAUI\Ihatud\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\kfisher.scale-100.png
 C:\Users\HP\Documents\VSCode-Files\C#-MAUI\Ihatud\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\sscbg.scale-100.png
 C:\Users\HP\Documents\VSCode-Files\C#-MAUI\Ihatud\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\slsu.scale-100.jpg
+C:\Users\HP\Documents\VSCode-Files\C#-MAUI\Ihatud\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\Ihatud.sourcelink.json

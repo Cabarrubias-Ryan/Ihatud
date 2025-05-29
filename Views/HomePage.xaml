@@ -25,20 +25,14 @@
                     HorizontalOptions="Fill"
                     Padding="0"
                     Margin="0"/>
-            <Button Text="Track Delivery"
+            <Button Text="View Orders"
                     x:Name="trackDeliveryButton"  
                     Clicked="OnTrackDeliveryClicked"
                     BackgroundColor="Transparent"
                     HorizontalOptions="Fill"
                     Padding="0"
                     Margin="0"/>
-            <Button x:Name="addProductButton"
-                    Text="Add Product (Admin Only)"
-                    Clicked="OnAddProductClicked"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="Fill"
-                    Padding="0"
-                    Margin="0"/>
+           
             <Button x:Name="viewUsersButton"
                     Text="View Users (Admin Only)"
                     Clicked="OnViewUsersClicked"
@@ -87,106 +81,42 @@
 
             <!-- Main Body -->
             <VerticalStackLayout Grid.Row="1"
-                                 VerticalOptions="Center"
+                                 VerticalOptions="FillAndExpand"
                                  HorizontalOptions="Center"
-                                 Spacing="20">
+                                 Spacing="20"
+                                 Padding="20">
+                <Label Text="Welcome to the Food Delivery App"  
+                       FontSize="24"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"/>
 
-                <!-- Scrollable list of food products -->
-                <ScrollView VerticalOptions="FillAndExpand">
-                    <StackLayout Spacing="10"
-                        Padding="20">
-                        <!-- Sample Product 1 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 1" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$10.99" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 2 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 2" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$12.49" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 3 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 3" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$8.79" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 4 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 4" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$15.99" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 5 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 5" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$9.49" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 6 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 6" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$11.89" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 7 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 7" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$14.29" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 8 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 8" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$7.99" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 9 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 9" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$18.59" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-
-                        <!-- Sample Product 10 -->
-                        <Frame BorderColor="Gray" Padding="10" CornerRadius="5">
-                            <HorizontalStackLayout Spacing="20">
-                                <Label Text="Product 10" FontSize="16" VerticalOptions="Center"/>
-                                <Label Text="$13.49" FontSize="16" VerticalOptions="Center"/>
-                                <Button Text="Order" Clicked="OnOrderClicked" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Frame>
-                    </StackLayout>
-                </ScrollView>
-
+                <!-- Scrollable product list using CollectionView -->
+                <CollectionView x:Name="FoodProductCollectionView"
+                                VerticalOptions="FillAndExpand"
+                                Margin="0"
+                                ItemsLayout="VerticalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="Gray"
+                                Padding="10"
+                                CornerRadius="5"
+                                Margin="0,5">
+                                <HorizontalStackLayout Spacing="20"
+                                                    Padding="30">
+                                    <Label Text="{Binding Name}"
+                                        FontSize="16"
+                                        VerticalOptions="Center"/>
+                                    <Label Text="{Binding Price, StringFormat='${0:N2}'}"
+                                        FontSize="16"
+                                        VerticalOptions="Center"/>
+                                    <Button Text="Order"
+                                            Clicked="OnOrderClicked"
+                                            VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </VerticalStackLayout>
         </Grid>
     </Grid>

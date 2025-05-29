@@ -20,6 +20,7 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 		string dbPath = Path.Combine(FileSystem.AppDataDirectory, "myapp.db");
+		Console.WriteLine($"Database Path: {dbPath}");
         builder.Services.AddSingleton<DatabaseService>(s => new DatabaseService(dbPath));
 		return builder.Build();
 	}

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ihatud.MainPage"
+             Title="Food Delivery App"
+             BackgroundColor="Transparent">
+
+    <!-- Use a Grid to layer the background image and foreground content -->
+    <Grid>
+        <!-- Foreground content -->
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="30"
+            Spacing="20">
+            
+            <Label Text="Delivery App"
+                   FontSize="24"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center" />
+
+            <Button Text="User Login / Register"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="OnUserLoginClicked" />
+
+            <Button Text="Admin Login"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="OnAdminLoginClicked" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

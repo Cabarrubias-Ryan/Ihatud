@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ihatud.Views.ViewUsers.ViewUsersPage"
+             Title="User Management"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label Text="User List"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+
+            <!-- CollectionView displaying users -->
+            <CollectionView ItemsSource="{Binding Users}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Margin="5" Padding="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding FullName}" FontSize="18" />
+                                <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
+
+                                <!-- Edit and Delete Buttons for each user -->
+                                <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+                                    <!-- Edit Button -->
+                                    <Button Text="Edit"
+                                            CommandParameter="{Binding}"
+                                            Clicked="OnEditUserClicked"
+                                            FontSize="12"
+                                            BackgroundColor="#B499FF"
+                                            TextColor="Black"
+                                            Padding="5, 2"
+                                            HorizontalOptions="Center"/>
+
+                                    <!-- Delete Button -->
+                                    <Button Text="Delete"
+                                            CommandParameter="{Binding Id}"
+                                            Clicked="OnDeleteUserClicked"
+                                            FontSize="12"
+                                            BackgroundColor="Red"
+                                            TextColor="White"
+                                            Padding="5, 2"
+                                            HorizontalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ihatud.LoginRegisterPage"
+             Title="Login/Register"
+             BackgroundColor="Transparent">
+
+       <Grid RowDefinitions="*,Auto">
+              <!-- Background Image -->
+              <Image Source="slsu.jpg"
+                     Aspect="AspectFill"
+                     Opacity="0.3"
+                     Grid.RowSpan="2"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
+
+              <!-- Scrollable Form -->
+              <ScrollView Grid.Row="0">
+                     <VerticalStackLayout
+                            x:Name="FormLayout"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Spacing="20"
+                            Padding="30"
+                            WidthRequest="320"
+                            MaximumWidthRequest="400">
+
+                            <Label x:Name="TitleLabel"
+                                   Text="Login"
+                                   FontSize="28"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="White"/>
+
+                            <!-- Full Name (Register only) -->
+                            <Entry x:Name="nameEntry"
+                                   Placeholder="Full Name"
+                                   BackgroundColor="White"
+                                   TextColor="Black"
+                                   IsVisible="False"/>
+
+                            <!-- Phone (Register only) -->
+                            <Entry x:Name="phoneEntry"
+                                   Placeholder="Phone Number"
+                                   Keyboard="Telephone"
+                                   BackgroundColor="White"
+                                   TextColor="Black"
+                                   IsVisible="False"/>
+
+                            <!-- Email -->
+                            <Entry x:Name="emailEntry"
+                                   Placeholder="Email"
+                                   Keyboard="Email"
+                                   BackgroundColor="White"
+                                   TextColor="Black"/>
+
+                            <!-- Password -->
+                            <Entry x:Name="passwordEntry"
+                                   Placeholder="Password"
+                                   IsPassword="True"
+                                   BackgroundColor="White"
+                                   TextColor="Black"/>
+
+                            <!-- Action Button -->
+                            <Button x:Name="actionButton"
+                                    Text="Login"
+                                    Clicked="OnActionClicked"
+                                    BackgroundColor="#B499FF"
+                                    TextColor="Black"
+                                    CornerRadius="12"
+                                    HeightRequest="45"/>
+
+                            <!-- Switch Mode Button -->
+                            <Button x:Name="toggleButton"
+                                    Text="No account? Register here"
+                                    Clicked="OnToggleClicked"
+                                    BackgroundColor="Transparent"
+                                    TextColor="White"
+                                    FontAttributes="Italic"/>
+                     </VerticalStackLayout>
+              </ScrollView>
+       </Grid>
+</ContentPage>
